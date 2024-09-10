@@ -3,6 +3,7 @@
 ### Members
 
 - Ishwak Sharda (300205473 - ishwak.sharda@student.ufv.ca)
+- Kshitij Goyal (300197764 - kshitij.goyal@student.ufv.ca)
 
 ## Topic
 
