@@ -4,6 +4,7 @@
 
 - Ishwak Sharda (300205473 - ishwak.sharda@student.ufv.ca)
 - Kshitij Goyal (300197764 - kshitij.goyal@student.ufv.ca)
+- Joshua Lepon (300189001 - joshuakarle.lepon@student.ufv.ca)
 
 ## Topic
 
