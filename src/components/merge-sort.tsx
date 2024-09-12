@@ -27,16 +27,16 @@ export default class MergeSort implements SortingInterface {
 	}
 
 	private async mergeSort(
-		p5: P5,
 		arr: number[],
 		start: number = 0,
 		end: number = arr.length - 1
 	) {
+		const p5 = this.p5;
 		if (start >= end) return;
 
 		const mid = p5.floor((start + end) / 2);
-		await this.mergeSort(p5, arr, start, mid);
-		await this.mergeSort(p5, arr, mid + 1, end);
+		await this.mergeSort(arr, start, mid);
+		await this.mergeSort(arr, mid + 1, end);
 		await this.rec(arr, start, mid, end);
 	}
 
@@ -90,7 +90,7 @@ export default class MergeSort implements SortingInterface {
 	}
 
 	public async run(values: number[]) {
-		this.mergeSort(this.p5, values);
+		this.mergeSort(values);
 	}
 
 	public incrementComparator() {
