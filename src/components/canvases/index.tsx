@@ -6,13 +6,15 @@ import React, { useRef } from "react";
 import SortingInterface from "../sorting.interface";
 import MergeSort from "../merge-sort";
 import Helpers from "@/helpers";
+import QuickSort from "../quick-sort";
 
 type CanvasProps = {
-	algorithm: "merge-sort";
+	algorithm: "merge-sort" | "quick-sort";
 };
 
 const sortingAlgorithms = {
 	"merge-sort": MergeSort,
+	"quick-sort": QuickSort,
 };
 
 const size = 2;
@@ -22,7 +24,7 @@ export default function MergeSortCanvas(props: CanvasProps) {
 
 	const sortRef = useRef<SortingInterface | null>(null);
 
-	const setup = (p5: P5, canvasParentRef: Element) => {
+	const setup = async (p5: P5, canvasParentRef: Element) => {
 		const width = viewRef.current?.clientWidth || window.innerWidth;
 		const height = viewRef.current?.clientHeight || window.innerHeight;
 		p5.createCanvas(width, height).parent(canvasParentRef);

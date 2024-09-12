@@ -89,7 +89,7 @@ export default class MergeSort implements SortingInterface {
 		}
 	}
 
-	public async run(values: number[]) {
+	public run(values: number[]) {
 		this.mergeSort(values);
 	}
 
