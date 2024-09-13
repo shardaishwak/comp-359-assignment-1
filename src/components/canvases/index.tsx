@@ -3,9 +3,9 @@
 import Sketch from "react-p5";
 import P5 from "p5/index";
 import React, { useRef } from "react";
-import SortingInterface from "../../app/classes/interfaces/sorting.interface";
 import Helpers from "@/helpers";
 import { QuickSort, MergeSort } from "@/app/classes";
+import SortingTemplate from "@/app/classes/abstract/sorting-template";
 
 
 type CanvasProps = {
@@ -22,7 +22,7 @@ const size = 2;
 export default function MergeSortCanvas(props: CanvasProps) {
 	const viewRef = React.useRef<HTMLDivElement>(null);
 
-	const sortRef = useRef<SortingInterface | null>(null);
+	const sortRef = useRef<SortingTemplate | null>(null);
 
 	const setup = async (p5: P5, canvasParentRef: Element) => {
 		const width = viewRef.current?.clientWidth || window.innerWidth;
