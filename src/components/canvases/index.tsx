@@ -3,10 +3,10 @@
 import Sketch from "react-p5";
 import P5 from "p5/index";
 import React, { useRef } from "react";
-import SortingInterface from "../sorting.interface";
-import MergeSort from "../merge-sort";
+import SortingInterface from "../../app/classes/interfaces/sorting.interface";
 import Helpers from "@/helpers";
-import QuickSort from "../quick-sort";
+import { QuickSort, MergeSort } from "@/app/classes";
+
 
 type CanvasProps = {
 	algorithm: "merge-sort" | "quick-sort";
