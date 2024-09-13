@@ -2,13 +2,9 @@
 
 import Helpers from "@/helpers";
 import P5 from "p5/index";
-import SortingInterface from "../interfaces/sorting.interface";
 import SortingTemplate from "../abstract/sorting-template";
 
-export default class MergeSort
-  extends SortingTemplate
-  implements SortingInterface
-{
+export default class MergeSort extends SortingTemplate {
   constructor(p5: P5, values: number[], width: number, height: number) {
     super(p5, values, width, height);
   }
