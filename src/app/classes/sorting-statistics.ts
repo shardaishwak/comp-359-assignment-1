@@ -3,8 +3,7 @@
 import SortingStatisticsAbstract from "./abstract/sorting-staticstics.abstract";
 import SortingTemplate from "./abstract/sorting-template";
 
-// Implement GOF Factory Design Pattern
-export default class SortingStatisticsFactory extends SortingStatisticsAbstract {
+export default class SortingStatistics extends SortingStatisticsAbstract {
   constructor(sortingAlgorithm: SortingTemplate) {
     super();
 

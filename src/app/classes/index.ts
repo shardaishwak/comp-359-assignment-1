@@ -2,6 +2,6 @@
 
 import MergeSort from "./sorting-algorithms/merge-sort";
 import QuickSort from "./sorting-algorithms/quick-sort";
-import SortingStatisticsFactory from "./sorting-statistics-factory";
+import SortingStatistics from "./sorting-statistics";
 
-export { MergeSort, QuickSort, SortingStatisticsFactory };
+export { MergeSort, QuickSort, SortingStatistics };
