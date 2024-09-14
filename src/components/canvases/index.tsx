@@ -3,10 +3,10 @@
 import Sketch from "react-p5";
 import P5 from "p5/index";
 import React, { useRef } from "react";
-import SortingInterface from "../sorting.interface";
 import MergeSort from "../merge-sort";
 import Helpers from "@/helpers";
 import QuickSort from "../quick-sort";
+import SortingTemplate from "../sorting-template";
 
 type CanvasProps = {
 	algorithm: "merge-sort" | "quick-sort";
@@ -22,7 +22,7 @@ const size = 2;
 export default function MergeSortCanvas(props: CanvasProps) {
 	const viewRef = React.useRef<HTMLDivElement>(null);
 
-	const sortRef = useRef<SortingInterface | null>(null);
+	const sortRef = useRef<SortingTemplate | null>(null);
 
 	const setup = async (p5: P5, canvasParentRef: Element) => {
 		const width = viewRef.current?.clientWidth || window.innerWidth;
@@ -41,10 +41,12 @@ export default function MergeSortCanvas(props: CanvasProps) {
 
 	const draw = (p5: P5) => {
 		if (!sortRef.current) return;
-		const values = sortRef.current.getValues();
-		const states = sortRef.current.getStates();
-		const swapCount = sortRef.current.getSwapCount();
-		const comparisonCount = sortRef.current.getComparisonCount();
+		// const values = sortRef.current.getValues();
+		// const states = sortRef.current.getStates();
+		// const swapCount = sortRef.current.getSwapCount();
+		// const comparisonCount = sortRef.current.getComparisonCount();
+
+		const { values, states, comparisonCount, swapCount } = sortRef.current.getStatistics()
 
 		// const width = viewRef.current?.clientWidth || window.innerWidth;
 		const height = viewRef.current?.clientHeight || window.innerHeight;
