@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import SortingInterface from "../sorting.interface";
 import MergeSort from "../merge-sort";
 import Helpers from "@/helpers";
-import QuickSort from "../quick-sort";
+import QuickSort, { Sorting } from "../quick-sort";
 
 type CanvasProps = {
 	algorithm: "merge-sort" | "quick-sort";
@@ -22,9 +22,23 @@ const size = 2;
 export default function MergeSortCanvas(props: CanvasProps) {
 	const viewRef = React.useRef<HTMLDivElement>(null);
 
-	const sortRef = useRef<SortingInterface | null>(null);
+	const sortRef = useRef<(Sorting & SortingInterface) | null>(null);
+
+	const [isLoaded, setIsLoaded] = React.useState(false);
+	const [speed, setSpeed] = React.useState(10);
+
+	React.useEffect(() => {
+		setIsLoaded(true);
+	}, []);
+
+	React.useEffect(() => {
+		if (sortRef.current) {
+			sortRef.current.setSpeed(speed);
+		}
+	}, [speed]);
 
 	const setup = async (p5: P5, canvasParentRef: Element) => {
+		console.log("Run");
 		const width = viewRef.current?.clientWidth || window.innerWidth;
 		const height = viewRef.current?.clientHeight || window.innerHeight;
 		p5.createCanvas(width, height).parent(canvasParentRef);
@@ -37,6 +51,7 @@ export default function MergeSortCanvas(props: CanvasProps) {
 			height
 		);
 		sortRef.current.run(sortRef.current.getValues());
+		sortRef.current.setSpeed(speed);
 	};
 
 	const draw = (p5: P5) => {
@@ -45,6 +60,7 @@ export default function MergeSortCanvas(props: CanvasProps) {
 		const states = sortRef.current.getStates();
 		const swapCount = sortRef.current.getSwapCount();
 		const comparisonCount = sortRef.current.getComparisonCount();
+		const timer = sortRef.current.getTimeElapsed();
 
 		// const width = viewRef.current?.clientWidth || window.innerWidth;
 		const height = viewRef.current?.clientHeight || window.innerHeight;
@@ -67,12 +83,19 @@ export default function MergeSortCanvas(props: CanvasProps) {
 		p5.text(`Values: ${values.length}`, 20, 30);
 		p5.text(`Swaps: ${swapCount}`, 20, 60);
 		p5.text(`Comparisons: ${comparisonCount}`, 20, 90);
+		p5.text(`Time elapsed: ${timer / 1000} seconds`, 20, 120);
 	};
 	return (
-		<div ref={viewRef} className="w-full h-screen bg-red-50">
-			{viewRef.current && (
-				<Sketch setup={setup as never} draw={draw as never} />
-			)}
+		<div ref={viewRef} className="w-full h-full bg-red-50">
+			{isLoaded && <Sketch setup={setup as never} draw={draw as never} />}
+			<input
+				type="range"
+				min="0.00011"
+				max="250"
+				value={speed}
+				onChange={(e) => setSpeed(parseInt(e.target.value))}
+				className="w-full"
+			/>
 		</div>
 	);
 }

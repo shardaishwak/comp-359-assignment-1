@@ -8,7 +8,12 @@ const Canvas = dynamic(() => import("@/components/canvases/"), {
 export default function Home() {
 	return (
 		<div className="bg-white w-screen h-screen">
-			<Canvas algorithm={"quick-sort"} />
+			<div className="h-1/2">
+				<Canvas algorithm={"merge-sort"} />
+			</div>
+			<div className="h-1/2">
+				<Canvas algorithm={"quick-sort"} />
+			</div>
 		</div>
 	);
 }

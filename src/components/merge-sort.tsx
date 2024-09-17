@@ -1,29 +1,11 @@
 "use client";
-
-import Helpers from "@/helpers";
 import P5 from "p5/index";
 import SortingInterface from "./sorting.interface";
+import { Sorting } from "./quick-sort";
 
-export default class MergeSort implements SortingInterface {
-	public p5: P5;
-	public values: number[];
-	public states: number[];
-	public sorted: boolean;
-	public swapCount: number;
-	public comparisonCount: number;
-
-	public windowWidth: number;
-	public windowHeight: number;
-
+export default class MergeSort extends Sorting implements SortingInterface {
 	constructor(p5: P5, values: number[], width: number, height: number) {
-		this.p5 = p5;
-		this.windowWidth = width;
-		this.windowHeight = height;
-		this.values = values;
-		this.states = new Array(this.values.length).fill(-1);
-		this.sorted = false;
-		this.comparisonCount = 0;
-		this.swapCount = 0;
+		super(p5, values, width, height);
 	}
 
 	private async mergeSort(
@@ -50,7 +32,7 @@ export default class MergeSort implements SortingInterface {
 		while (i < left.length && j < right.length) {
 			this.activateState(k);
 			this.incrementComparator();
-			await Helpers.sleep(10);
+			await this.sleep();
 			if (left[i] < right[j]) {
 				arr[k] = left[i];
 				i++;
@@ -64,7 +46,7 @@ export default class MergeSort implements SortingInterface {
 		while (i < left.length) {
 			this.activateState(k);
 			this.incrementComparator();
-			await Helpers.sleep(10);
+			await this.sleep();
 			arr[k] = left[i];
 			i++;
 			k++;
@@ -73,7 +55,7 @@ export default class MergeSort implements SortingInterface {
 		while (j < right.length) {
 			this.activateState(k);
 			this.incrementComparator();
-			await Helpers.sleep(10);
+			await this.sleep();
 			arr[k] = right[j];
 			j++;
 			k++;
@@ -83,45 +65,8 @@ export default class MergeSort implements SortingInterface {
 		this.illuminate(start, end);
 	}
 
-	public illuminate(start: number, end: number) {
-		for (let i = start; i <= end; i++) {
-			this.activateState(i);
-		}
-	}
-
 	public run(values: number[]) {
+		this.time = new Date();
 		this.mergeSort(values);
-	}
-
-	public incrementComparator() {
-		this.comparisonCount++;
-	}
-
-	public incrementSwap() {
-		this.swapCount++;
-	}
-
-	public activateState(index: number) {
-		this.states[index] = 0;
-	}
-
-	public deactivateState(index: number) {
-		this.states[index] = 1;
-	}
-
-	public getValues() {
-		return this.values;
-	}
-
-	public getStates() {
-		return this.states;
-	}
-
-	public getComparisonCount() {
-		return this.comparisonCount;
-	}
-
-	public getSwapCount() {
-		return this.swapCount;
 	}
 }
