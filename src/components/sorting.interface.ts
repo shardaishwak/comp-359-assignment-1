@@ -10,6 +10,8 @@ export default interface SortingInterface {
 	p5: P5;
 	windowWidth: number;
 	windowHeight: number;
+	speed: number;
+	time: Date;
 
 	run(values: number[]): void;
 	incrementComparator(): void;
