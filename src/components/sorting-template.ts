@@ -4,7 +4,7 @@ import Helpers from "@/helpers";
 import SortingInterface from "./sorting.interface";
 import P5 from "p5/index";
 
-type SortingStatistics = {
+export type SortingStatistics = {
 	values: number[];
 	states: number[];
 	comparisonCount: number;
@@ -54,34 +54,16 @@ export default abstract class SortingTemplate implements SortingInterface {
 	public deactivateState(index: number) {
 		this.states[index] = 1;
 	}
-
-	//   These get methods may be unnecessary
-	public getValues() {
-		return this.values;
+	
+	public getTimeElapsed(): number {
+		return new Date().getTime() - this.time.getTime();
 	}
-
-	public getStates() {
-		return this.states;
-	}
-
-	public getComparisonCount() {
-		return this.comparisonCount;
-	}
-
-	public getSwapCount() {
-		return this.swapCount;
-	}
-
 	public async sleep() {
 		await Helpers.sleep(this.speed);
 	}
 
 	public setSpeed(speed: number): void {
 		this.speed = speed;
-	}
-
-	public getTimeElapsed(): number {
-		return new Date().getTime() - this.time.getTime();
 	}
 
 	//   Make it a method instead of a separate class

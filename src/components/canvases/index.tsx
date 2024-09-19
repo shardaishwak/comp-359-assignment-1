@@ -47,7 +47,8 @@ export default function MergeSortCanvas(props: CanvasProps) {
 			width,
 			height
 		);
-		sortRef.current.run(sortRef.current.getValues());
+		const { values } = sortRef.current.getStatistics();
+		sortRef.current.run(values);
 		sortRef.current.setSpeed(speed);
 	};
 
