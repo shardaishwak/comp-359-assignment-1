@@ -1,10 +1,11 @@
 "use client";
 
+import P5 from "p5/index";
 import SortingTemplate from "../sorting-template";
 
 export default class QuickSort extends SortingTemplate {
-	constructor(values: number[], width: number, height: number) {
-		super(values, width, height);
+	constructor(p5: P5, values: number[], width: number, height: number) {
+		super(p5, values, width, height);
 	}
 
 	private async quickSort(

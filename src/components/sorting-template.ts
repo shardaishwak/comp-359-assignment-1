@@ -1,7 +1,8 @@
 "use client";
 
-import Helpers from "../helpers";
+import Helpers from "@/helpers";
 import SortingInterface from "./sorting.interface";
+import P5 from "p5/index";
 
 export type SortingStatistics = {
 	values: number[];
@@ -17,13 +18,15 @@ export default abstract class SortingTemplate implements SortingInterface {
 	sorted: boolean;
 	swapCount: number;
 	comparisonCount: number;
+	p5: import("p5");
 	windowWidth: number;
 	windowHeight: number;
 	speed: number;
 	time: Date;
 	finishTime: Date;
 
-	constructor(values: number[], width: number, height: number) {
+	constructor(p5: P5, values: number[], width: number, height: number) {
+		this.p5 = p5;
 		this.windowWidth = width;
 		this.windowHeight = height;
 		this.values = values;

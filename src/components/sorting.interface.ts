@@ -1,3 +1,4 @@
+import P5 from "p5/index";
 import { SortingStatistics } from "./sorting-template";
 
 export default interface SortingInterface {
@@ -7,6 +8,7 @@ export default interface SortingInterface {
 	sorted: boolean;
 	swapCount: number;
 	comparisonCount: number;
+	p5: P5;
 	windowWidth: number;
 	windowHeight: number;
 	speed: number;
