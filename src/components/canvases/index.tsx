@@ -13,6 +13,7 @@ import InsertionSort from "../sorting-algorithms/insertion-sort";
 import ShellSort from "../sorting-algorithms/shell-sort";
 import BogoSort from "../sorting-algorithms/bogo-sort";
 import { SelectAlgorithm } from "../select-algorithm";
+import HeapSort from "../sorting-algorithms/heap-sort";
 
 // type CanvasProps = {
 // 	algorithm: "merge-sort" |
@@ -38,6 +39,7 @@ const sortingAlgorithms = {
 	// https://www.geeksforgeeks.org/shell-sort/
 	"bogo-sort": BogoSort,
 	// https://www.geeksforgeeks.org/bogosort-permutation-sort/
+	"heap-sort": HeapSort,
 };
 
 // Increasing this value decreases values array size

@@ -28,6 +28,7 @@ export function SelectAlgorithm({
           <SelectItem value="selection-sort">Selection Sort</SelectItem>
           <SelectItem value="insertion-sort">Insertion Sort</SelectItem>
           <SelectItem value="shell-sort">Shell Sort</SelectItem>
+          <SelectItem value="heap-sort">Heap Sort</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
