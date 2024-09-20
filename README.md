@@ -1,4 +1,8 @@
 # Assignment 1
+<img width="1712" alt="Screenshot 2024-09-20 at 4 09 05 PM" src="https://github.com/user-attachments/assets/b602aff2-502e-4d00-9cd7-e0795e2f44ab">
+<img width="2168" alt="Screenshot 2024-09-20 at 4 09 44 PM" src="https://github.com/user-attachments/assets/ad2a57e4-96f3-4c6c-8d71-b7904d91e16d">
+
+<img width="1312" alt="Screenshot 2024-09-20 at 4 10 41 PM" src="https://github.com/user-attachments/assets/8aa34ba3-d177-49f6-a80a-d7ec18457a44">
 
 ### Members
 
@@ -64,24 +68,34 @@ The user will select the size of the array and the algorithms to run. Then, when
 ### **Linear Time Complexity (O(n))**
 
 1. **Counting Sort** - O(n + k) (where k is the range of input values)
-2. **Radix Sort** - O(nk) (k is the number of digits)
+   - Implemented differently in Processing with a new visualization method.
+3. **Radix Sort** - O(nk) (k is the number of digits)
+   - Implemented in TS and Java
 
 ### **Linearithmic Time Complexity (O(n log n))**
 
 1. **Merge Sort** - O(n log n)
-2. **Heap Sort** - O(n log n)
-3. **Quick Sort** - O(n log n) (on average, worst case is O(n^2))
+   - Implemented in TS and Java
+3. **Heap Sort** - O(n log n)
+   - Implemented in TS and Java
+5. **Quick Sort** - O(n log n) (on average, worst case is O(n^2))
+   - Implemented in TS
 
 ### **Quadratic Time Complexity (O(n^2))**
 
 1. **Bubble Sort** - O(n^2)
-2. **Selection Sort** - O(n^2)
-3. **Insertion Sort** - O(n^2) (can be O(n) in the best case if the array is almost sorted)
-4. **Shell Sort** - Depends on the gap sequence; worst case is O(n^2) but can be better in practice
+   - Implemented in TS and Java
+3. **Selection Sort** - O(n^2)
+   - Implemented in TS
+5. **Insertion Sort** - O(n^2) (can be O(n) in the best case if the array is almost sorted)
+   - Implemented in TS and Java
+7. **Shell Sort** - Depends on the gap sequence; worst case is O(n^2) but can be better in practice
+   - Implemented in TS
 
 ### **Other Time Complexities**
 
 1. **Bogo Sort** - O((n+1)!) (extremely inefficient, purely theoretical)
+   - Implemented in TS and Java
 
 ---
 
