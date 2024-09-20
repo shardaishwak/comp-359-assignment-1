@@ -1,4 +1,6 @@
 import P5 from "p5/index";
+import { SortingStatistics } from "./sorting-template";
+
 
 export default interface SortingInterface {
 	// Attributes
@@ -19,9 +21,11 @@ export default interface SortingInterface {
 	activateState(index: number): void;
 	deactivateState(index: number): void;
 
-	// Getter and setter methods
-	getValues(): number[];
-	getStates(): number[];
-	getComparisonCount(): number;
-	getSwapCount(): number;
+	// Utility methods
+	sleep(): Promise<void>;
+	setSpeed(speed: number): void;
+	getStatistics(): SortingStatistics
+
+
+
 }
