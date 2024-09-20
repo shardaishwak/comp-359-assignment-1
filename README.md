@@ -31,7 +31,7 @@ The user will select the size of the array and the algorithms to run. Then, when
 - Github: for keeping track of the code files, versioning, branching and issues. 
   - Java Repository: https://github.com/shardaishwak/comp-359-assignment-1-java
   - Typescript Respository: https://github.com/shardaishwak/comp-359-assignment-1
-- Github Board / Notion: for assignment of tasks to each user. Check it out at: https://github.com/users/shardaishwak/projects/1
+- Github Board / Notion: for assignment of tasks to each user. We primary used Roadmap Check it out at: [https://github.com/users/shardaishwak/projects/1](https://github.com/users/shardaishwak/projects/1/views/4)
 
 ### Submission model
 
