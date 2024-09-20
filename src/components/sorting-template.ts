@@ -4,7 +4,7 @@ import Helpers from "@/helpers";
 import SortingInterface from "./sorting.interface";
 import P5 from "p5/index";
 
-type SortingStatistics = {
+export type SortingStatistics = {
   values: number[];
   states: number[];
   comparisonCount: number;
