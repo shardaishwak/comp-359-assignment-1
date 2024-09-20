@@ -23,6 +23,7 @@ export default abstract class SortingTemplate implements SortingInterface {
 	windowHeight: number;
 	speed: number;
 	time: Date;
+	finalElapsedTime: number | null; // New variable to store final time
 
 	constructor(p5: P5, values: number[], width: number, height: number) {
 		this.p5 = p5;
@@ -30,14 +31,15 @@ export default abstract class SortingTemplate implements SortingInterface {
 		this.windowHeight = height;
 		this.values = values;
 		this.states = new Array(this.values.length).fill(-1);
-		this.sorted = false;
+		this.sorted = false; // New flag to track sorting status
+		this.finalElapsedTime = null; // New variable to track final elapsed time
 		this.comparisonCount = 0;
 		this.swapCount = 0;
 		this.speed = 10;
 		this.time = new Date();
 	}
 
-	public abstract run(values: number[]): void;
+	public abstract run(values: number[]): Promise<void>;
 
 	public incrementComparator() {
 		this.comparisonCount++;
@@ -55,9 +57,19 @@ export default abstract class SortingTemplate implements SortingInterface {
 		this.states[index] = 1;
 	}
 	
-	public getTimeElapsed(): number {
-		return new Date().getTime() - this.time.getTime();
+	// Check if sorting is done
+	public completeSorting() {
+		this.sorted = true;
+		this.finalElapsedTime = this.getTimeElapsed(); // Store the final time when sorting completes
 	}
+
+	public getTimeElapsed(): number {
+		if (this.finalElapsedTime !== null) {
+			return this.finalElapsedTime; // Return the final elapsed time if sorting is complete
+		}
+		return new Date().getTime() - this.time.getTime(); // Otherwise, calculate the elapsed time
+	}
+
 	public async sleep() {
 		await Helpers.sleep(this.speed);
 	}

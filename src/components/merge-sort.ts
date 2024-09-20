@@ -71,8 +71,9 @@ export default class MergeSort extends SortingTemplate {
 		}
 	}
 
-	public run(values: number[]) {
+	public async run(values: number[]) {
 		this.time = new Date();
-		this.mergeSort(values);
+		await this.mergeSort(values);
+		this.completeSorting();
 	}
 }
