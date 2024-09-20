@@ -48,8 +48,9 @@ export default class BogoSort extends SortingTemplate {
     }
   }
 
-  public run(values: number[]) {
+  public async run(values: number[]) {
     this.time = new Date();
-    this.bogoSort(values);
+    await this.bogoSort(values);
+    this.onFinish();
   }
 }

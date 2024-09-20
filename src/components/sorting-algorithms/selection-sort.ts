@@ -49,6 +49,7 @@ export default class SelectionSort extends SortingTemplate {
   public async run(values: number[]) {
     this.time = new Date();
     await this.selectionSort(values);
+    this.onFinish();
     this.greenAll();
   }
 }

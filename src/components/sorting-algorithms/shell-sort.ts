@@ -47,8 +47,10 @@ export default class ShellSort extends SortingTemplate {
     }
   }
 
-  public run(values: number[]) {
+  public async run(values: number[]) {
     this.time = new Date();
     this.shellSort(values);
+    this.onFinish();
+    this.greenAll();
   }
 }

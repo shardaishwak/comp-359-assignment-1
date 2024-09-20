@@ -46,6 +46,7 @@ export default class BubbleSort extends SortingTemplate {
   public async run(values: number[]) {
     this.time = new Date();
     await this.bubbleSort(values);
+    this.onFinish();
     this.greenAll();
   }
 }

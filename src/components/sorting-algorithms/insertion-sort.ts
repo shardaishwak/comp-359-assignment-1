@@ -44,6 +44,7 @@ export default class InsertionSort extends SortingTemplate {
   public async run(values: number[]) {
     this.time = new Date();
     await this.insertionSort(values);
+    this.onFinish();
     this.greenAll();
   }
 }
