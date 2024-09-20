@@ -3,11 +3,12 @@
 import Sketch from "react-p5";
 import P5 from "p5/index";
 import React, { useRef } from "react";
-import MergeSort from "../merge-sort";
 import Helpers from "@/helpers";
-import QuickSort from "../quick-sort";
+
 import SortingTemplate from "../sorting-template";
 import { SelectAlgorithm } from "../select-algorithm";
+import MergeSort from "../sorting-algorithms/merge-sort";
+import QuickSort from "../sorting-algorithms/quick-sort";
 
 const sortingAlgorithms = {
 	"merge-sort": MergeSort,

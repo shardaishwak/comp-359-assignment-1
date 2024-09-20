@@ -1,6 +1,7 @@
 import P5 from "p5/index";
 import { SortingStatistics } from "./sorting-template";
 
+
 export default interface SortingInterface {
 	// Attributes
 	values: number[];
