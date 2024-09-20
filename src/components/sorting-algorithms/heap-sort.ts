@@ -5,7 +5,7 @@ import SortingTemplate from "../sorting-template";
 
 export default class HeapSort extends SortingTemplate {
   constructor(p5: P5, values: number[], width: number, height: number) {
-    super(p5, values, width, height);
+    super(values, width, height);
   }
 
   private async heapify(arr: number[], n: number, i: number) {
