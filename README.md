@@ -27,9 +27,11 @@ The user will select the size of the array and the algorithms to run. Then, when
 
 ### Planning
 
-- Readme file: dividing the tasks, requirements, rubric and general progress of each user. It will be updated daily for tasks that have been done
-- Github: for keeping track of the code files, versioning, branching and issues.
-- Github Board / Notion: for assignment of tasks to each user.
+- Readme file: dividing the tasks, requirements, rubric and general progress of each user.
+- Github: for keeping track of the code files, versioning, branching and issues. 
+  - Java Repository: https://github.com/shardaishwak/comp-359-assignment-1-java
+  - Typescript Respository: https://github.com/shardaishwak/comp-359-assignment-1
+- Github Board / Notion: for assignment of tasks to each user. Check it out at: https://github.com/users/shardaishwak/projects/1
 
 ### Submission model
 
@@ -37,7 +39,9 @@ The user will select the size of the array and the algorithms to run. Then, when
 
 ### Source:
 
-- See Algorithmi Analysis document
+- See Algorithmi Analysis document. Providing two alternatives that contain the same information:
+  - PDF Version:
+  - Overleaf Version: https://www.overleaf.com/read/vtgpnmbfdwkz#8948b5
 
 ### Technologies required
 
@@ -45,10 +49,13 @@ The user will select the size of the array and the algorithms to run. Then, when
 - P5.JS
 - HTML
 - CSS
-- Java
+- Java (OOP)
 - Java Processing Framework
 - JUnit
 - Vitest
+- React
+- NextJS
+- TailwindCSS
 
 ---
 
