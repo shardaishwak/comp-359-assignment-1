@@ -29,8 +29,6 @@ export default class BogoSort extends SortingTemplate {
   }
 
   private async bogoSort(arr: number[]) {
-    this.time = new Date();
-
     while (!this.isSorted(arr)) {
       this.shuffle(arr);
       this.incrementComparator();
@@ -51,6 +49,7 @@ export default class BogoSort extends SortingTemplate {
   }
 
   public run(values: number[]) {
+    this.time = new Date();
     this.bogoSort(values);
   }
 }

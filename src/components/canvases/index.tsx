@@ -3,21 +3,44 @@
 import Sketch from "react-p5";
 import P5 from "p5/index";
 import React, { useRef } from "react";
-import MergeSort from "../merge-sort";
 import Helpers from "@/helpers";
-import QuickSort from "../quick-sort";
 import SortingTemplate from "../sorting-template";
+import MergeSort from "../sorting-algorithms/merge-sort";
+import QuickSort from "../sorting-algorithms/quick-sort";
+import BubbleSort from "../sorting-algorithms/bubble-sort";
+import SelectionSort from "../sorting-algorithms/selection-sort";
+import InsertionSort from "../sorting-algorithms/insertion-sort";
+import ShellSort from "../sorting-algorithms/shell-sort";
+import BogoSort from "../sorting-algorithms/bogo-sort";
 
 type CanvasProps = {
-	algorithm: "merge-sort" | "quick-sort";
+	algorithm: "merge-sort" |
+	"quick-sort" |
+	"bubble-sort" |
+	"selection-sort" |
+	"shell-sort" |
+	"insertion-sort" |
+	"bogo-sort"
 };
 
 const sortingAlgorithms = {
 	"merge-sort": MergeSort,
 	"quick-sort": QuickSort,
+	"bubble-sort": BubbleSort,
+	// https://www.geeksforgeeks.org/bubble-sort-algorithm/
+	"selection-sort": SelectionSort,
+	// https://www.geeksforgeeks.org/selection-sort-algorithm-2/
+	"insertion-sort": InsertionSort,
+	// https://www.geeksforgeeks.org/insertion-sort-algorithm/
+	"shell-sort": ShellSort,
+	// https://www.codingeek.com/algorithms/shell-sort-algorithm-explanation-implementation-and-complexity/
+	// https://www.geeksforgeeks.org/shell-sort/
+	"bogo-sort": BogoSort,
+	// https://www.geeksforgeeks.org/bogosort-permutation-sort/
 };
 
-const size = 2;
+// Increasing this value decreases values array size
+const size = 10;
 
 export default function MergeSortCanvas(props: CanvasProps) {
 	const viewRef = React.useRef<HTMLDivElement>(null);
@@ -53,10 +76,6 @@ export default function MergeSortCanvas(props: CanvasProps) {
 
 	const draw = (p5: P5) => {
 		if (!sortRef.current) return;
-		// const values = sortRef.current.getValues();
-		// const states = sortRef.current.getStates();
-		// const swapCount = sortRef.current.getSwapCount();
-		// const comparisonCount = sortRef.current.getComparisonCount();
 
 		const { values, states, comparisonCount, swapCount, timeElapsed } =
 			sortRef.current.getStatistics();
