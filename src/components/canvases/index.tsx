@@ -2,7 +2,7 @@
 
 import Sketch from "react-p5";
 import P5 from "p5/index";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Helpers from "@/helpers";
 import SortingTemplate from "../sorting-template";
 import MergeSort from "../sorting-algorithms/merge-sort";
@@ -14,15 +14,15 @@ import ShellSort from "../sorting-algorithms/shell-sort";
 import BogoSort from "../sorting-algorithms/bogo-sort";
 import { SelectAlgorithm } from "../select-algorithm";
 
-type CanvasProps = {
-	algorithm: "merge-sort" |
-	"quick-sort" |
-	"bubble-sort" |
-	"selection-sort" |
-	"shell-sort" |
-	"insertion-sort" |
-	"bogo-sort"
-};
+// type CanvasProps = {
+// 	algorithm: "merge-sort" |
+// 	"quick-sort" |
+// 	"bubble-sort" |
+// 	"selection-sort" |
+// 	"shell-sort" |
+// 	"insertion-sort" |
+// 	"bogo-sort"
+// };
 
 const sortingAlgorithms = {
 	"merge-sort": MergeSort,
@@ -47,7 +47,7 @@ export default function MergeSortCanvas() {
 	const viewRef = React.useRef<HTMLDivElement>(null);
 	const sortRef = useRef<SortingTemplate | null>(null);
 	const [isLoaded, setIsLoaded] = React.useState(false);
-	const [algorithmChosen, setAlgorithmChosen] = React.useState<string | null>(null);
+	const [algorithmChosen, setAlgorithmChosen] = React.useState<string>("");
 	const [speed, setSpeed] = React.useState(10);
 
 	const chooseAlgorithm = (algorithm: string) => {
@@ -55,13 +55,13 @@ export default function MergeSortCanvas() {
 		setIsLoaded(false);
 	}
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (algorithmChosen) {
 			setIsLoaded(true);
 		}
 	}, [algorithmChosen]);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (sortRef.current) {
 			sortRef.current.setSpeed(speed);
 		}
@@ -87,7 +87,9 @@ export default function MergeSortCanvas() {
 			height
 		);
 
-		const { values } = sortRef.current?.getStatistics();
+		// removes typescript warning as sortref.current can be null
+		if (!sortRef.current) return
+		const { values } = sortRef.current.getStatistics();
 		sortRef.current?.run(values);
 		sortRef.current?.setSpeed(speed);
 	};
@@ -129,9 +131,8 @@ export default function MergeSortCanvas() {
 
 			{/* Sketch canvas */}
 			<div ref={viewRef} className="flex-grow">
-				{isLoaded && <Sketch setup={setup as never} draw={draw as never} />}
+				{isLoaded && algorithmChosen && <Sketch setup={setup as never} draw={draw as never} />}
 			</div>
-
 			{/* Speed Input at the bottom */}
 			<div className="p-4">
 				<input
