@@ -49,7 +49,7 @@ export default class ShellSort extends SortingTemplate {
 
   public async run(values: number[]) {
     this.time = new Date();
-    this.shellSort(values);
+    await this.shellSort(values);
     this.onFinish();
     this.greenAll();
   }
