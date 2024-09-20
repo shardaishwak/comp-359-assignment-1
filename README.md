@@ -28,8 +28,8 @@ The user will select the size of the array and the algorithms to run. Then, when
 ### Planning
 
 - Readme file: dividing the tasks, requirements, rubric and general progress of each user. It will be updated daily for tasks that have been done
-- Github: for keeping track of the code files.
-- Github Board / Notion: for assignment of tasks to each user
+- Github: for keeping track of the code files, versioning, branching and issues.
+- Github Board / Notion: for assignment of tasks to each user.
 
 ### Submission model
 
@@ -37,17 +37,18 @@ The user will select the size of the array and the algorithms to run. Then, when
 
 ### Source:
 
-- Algorithms (4th generation): Merge sort and Quick Sort implementations
-- Claude AI
-- ChatGPT
-- [https://shivanshbakshi.dev/blog/p5-react/integrate-p5-with-react/](https://shivanshbakshi.dev/blog/p5-react/integrate-p5-with-react/)
+- See Algorithmi Analysis document
 
 ### Technologies required
 
 - Typescript
-- P5.Js or Processing Java
+- P5.JS
 - HTML
 - CSS
+- Java
+- Java Processing Framework
+- JUnit
+- Vitest
 
 ---
 
@@ -57,14 +58,12 @@ The user will select the size of the array and the algorithms to run. Then, when
 
 1. **Counting Sort** - O(n + k) (where k is the range of input values)
 2. **Radix Sort** - O(nk) (k is the number of digits)
-3. **Bucket Sort** - O(n) (under certain conditions)
 
 ### **Linearithmic Time Complexity (O(n log n))**
 
 1. **Merge Sort** - O(n log n)
 2. **Heap Sort** - O(n log n)
 3. **Quick Sort** - O(n log n) (on average, worst case is O(n^2))
-4. **Timsort** - O(n log n) (used in Python and Java’s standard sorting libraries)
 
 ### **Quadratic Time Complexity (O(n^2))**
 
@@ -76,13 +75,12 @@ The user will select the size of the array and the algorithms to run. Then, when
 ### **Other Time Complexities**
 
 1. **Bogo Sort** - O((n+1)!) (extremely inefficient, purely theoretical)
-2. **Stooge Sort** - O(n^(log 3/log 1.5)) (very inefficient, primarily for academic purposes)
 
 ---
 
 ### Test suitcase
 
-To ensure that our implementations of the algorithms are correct, we can develop a test suitcase to run on each algorithm.
+To ensure that our implementations of the algorithms are correct, we can develop a test suitcase to run on each algorithm. This suitcase makes sure that all the algorithms do sort accordingly given some input.
 
 ---
 
