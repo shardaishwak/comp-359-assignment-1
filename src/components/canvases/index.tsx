@@ -21,14 +21,14 @@ const size = 2;
 
 export default function MergeSortCanvas(props: CanvasProps) {
 	const viewRef = React.useRef<HTMLDivElement>(null);
-
 	const sortRef = useRef<SortingTemplate | null>(null);
-
 	const [isLoaded, setIsLoaded] = React.useState(false);
 	const [speed, setSpeed] = React.useState(10);
+
 	React.useEffect(() => {
 		setIsLoaded(true);
 	}, []);
+
 	React.useEffect(() => {
 		if (sortRef.current) {
 			sortRef.current.setSpeed(speed);
@@ -36,34 +36,31 @@ export default function MergeSortCanvas(props: CanvasProps) {
 	}, [speed]);
 
 	const setup = async (p5: P5, canvasParentRef: Element) => {
-		const width = viewRef.current?.clientWidth || window.innerWidth;
-		const height = viewRef.current?.clientHeight || window.innerHeight;
+		const width = viewRef.current?.clientWidth || window.innerWidth / 2;
+    	const height = viewRef.current?.clientHeight || window.innerHeight / 2;
+	
 		p5.createCanvas(width, height).parent(canvasParentRef);
 		p5.background(0);
-
+	
 		sortRef.current = new sortingAlgorithms[props.algorithm](
 			p5,
 			Helpers.generateRandomArray(p5, width, height, size),
 			width,
 			height
 		);
+	
 		const { values } = sortRef.current.getStatistics();
 		sortRef.current.run(values);
 		sortRef.current.setSpeed(speed);
 	};
-
+	
 	const draw = (p5: P5) => {
 		if (!sortRef.current) return;
-		// const values = sortRef.current.getValues();
-		// const states = sortRef.current.getStates();
-		// const swapCount = sortRef.current.getSwapCount();
-		// const comparisonCount = sortRef.current.getComparisonCount();
-
 		const { values, states, comparisonCount, swapCount, timeElapsed } =
 			sortRef.current.getStatistics();
 
 		// const width = viewRef.current?.clientWidth || window.innerWidth;
-		const height = viewRef.current?.clientHeight || window.innerHeight;
+		const height = viewRef.current?.clientHeight || window.innerHeight/2;
 
 		p5.background(0);
 
@@ -79,14 +76,14 @@ export default function MergeSortCanvas(props: CanvasProps) {
 		}
 
 		p5.fill(255);
-		p5.textSize(20);
+		p5.textSize(10);
 		p5.text(`Values: ${values.length}`, 20, 30);
 		p5.text(`Swaps: ${swapCount}`, 20, 60);
 		p5.text(`Comparisons: ${comparisonCount}`, 20, 90);
 		p5.text(`Time elapsed: ${timeElapsed / 1000} seconds`, 20, 120);
 	};
 	return (
-		<div ref={viewRef} className="w-full h-screen bg-red-50">
+		<div ref={viewRef} className="w-full h-full">
 			{isLoaded && <Sketch setup={setup as never} draw={draw as never} />}
 			<input
 				type="range"
