@@ -74,6 +74,7 @@ export default class MergeSort extends SortingTemplate {
   public async run(values: number[]) {
     this.time = new Date();
     await this.mergeSort(values);
+    this.onFinish();
     this.greenAll();
   }
 }

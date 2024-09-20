@@ -1,7 +1,6 @@
 import P5 from "p5/index";
 import { SortingStatistics } from "./sorting-template";
 
-
 export default interface SortingInterface {
 	// Attributes
 	values: number[];
@@ -14,6 +13,7 @@ export default interface SortingInterface {
 	windowHeight: number;
 	speed: number;
 	time: Date;
+	finishTime: Date;
 
 	run(values: number[]): void;
 	incrementComparator(): void;
@@ -24,8 +24,5 @@ export default interface SortingInterface {
 	// Utility methods
 	sleep(): Promise<void>;
 	setSpeed(speed: number): void;
-	getStatistics(): SortingStatistics
-
-
-
+	getStatistics(): SortingStatistics;
 }
