@@ -54,7 +54,7 @@ The user will select the size of the array and the algorithms to run. Then, when
 ### Source:
 
 - See Algorithmi Analysis document. Providing two alternatives that contain the same information:
-  - PDF Version:
+  - PDF Version: [Algorithm Analysis.pdf](https://github.com/user-attachments/files/17082556/Algorithm.Analysis.pdf)
   - Overleaf Version: https://www.overleaf.com/read/vtgpnmbfdwkz#8948b5
 
 ### Technologies required
