@@ -22,7 +22,7 @@ https://ufv-comp-359-a1.vercel.app/
 ### Source code
 - Typescript (web): https://github.com/shardaishwak/comp-359-assignment-1
 - Java (multithread): https://github.com/shardaishwak/comp-359-assignment-1-java
-
+- Github Board: https://github.com/users/shardaishwak/projects/1/views/4
 
 ---
 
