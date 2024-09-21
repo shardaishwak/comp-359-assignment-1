@@ -1,8 +1,17 @@
 # Assignment 1
+
+## Topic
+
+**Create a program that visualizes three different sorting algorithms, one quadratic, one linearithmic, and one linear.**
+
+
 <img width="1712" alt="Screenshot 2024-09-20 at 4 09 05 PM" src="https://github.com/user-attachments/assets/b602aff2-502e-4d00-9cd7-e0795e2f44ab">
 <img width="2168" alt="Screenshot 2024-09-20 at 4 09 44 PM" src="https://github.com/user-attachments/assets/ad2a57e4-96f3-4c6c-8d71-b7904d91e16d">
 
 <img width="1312" alt="Screenshot 2024-09-20 at 4 10 41 PM" src="https://github.com/user-attachments/assets/8aa34ba3-d177-49f6-a80a-d7ec18457a44">
+
+### Live version
+https://ufv-comp-359-a1.vercel.app/
 
 ### Members
 
@@ -10,9 +19,10 @@
 - Kshitij Goyal (300197764 - kshitij.goyal@student.ufv.ca)
 - Joshua Lepon (300189001 - joshuakarle.lepon@student.ufv.ca)
 
-## Topic
+### Source code
+- Typescript (web): https://github.com/shardaishwak/comp-359-assignment-1
+- Java (multithread): https://github.com/shardaishwak/comp-359-assignment-1-java
 
-**Create a program that visualizes three different sorting algorithms, one quadratic, one linearithmic, and one linear.**
 
 ---
 
